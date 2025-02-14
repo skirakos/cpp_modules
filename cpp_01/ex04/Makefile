@@ -1,13 +1,10 @@
-NAME = zombie
+NAME = replace
 
 CPP = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
-SRCS = main.cpp \
-		HumanA.cpp \
-		Weapon.cpp \
-		HumanB.cpp \
+SRCS = main.cpp
 		
 OBJS = $(SRCS:.cpp=.o)
 
@@ -16,7 +13,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CPP) $(CFLAGS) -o $(NAME) $(OBJS)
 
-%.o: %.cpp Makefile HumanA.hpp Weapon.hpp HumanB.hpp
+%.o: %.cpp Makefile
 	$(CPP) $(CFLAGS) -c $< -o $@
 
 clean:

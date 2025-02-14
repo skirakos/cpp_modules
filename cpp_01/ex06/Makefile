@@ -1,13 +1,11 @@
-NAME = zombie
+NAME = harlFilter
 
 CPP = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
 SRCS = main.cpp \
-		HumanA.cpp \
-		Weapon.cpp \
-		HumanB.cpp \
+		Harl.cpp
 		
 OBJS = $(SRCS:.cpp=.o)
 
@@ -16,7 +14,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CPP) $(CFLAGS) -o $(NAME) $(OBJS)
 
-%.o: %.cpp Makefile HumanA.hpp Weapon.hpp HumanB.hpp
+%.o: %.cpp Makefile Harl.hpp
 	$(CPP) $(CFLAGS) -c $< -o $@
 
 clean:
