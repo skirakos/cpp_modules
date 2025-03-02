@@ -4,6 +4,7 @@
 DiamondTrap::DiamondTrap() {
 	std::cout<<"DiamondTrap Constructor is called\n";
 	this->name = "Unknown";
+	this->ClapTrap::name = "Unknown_clap_name";
 	this->hit_points = 100;
 	this->energy_points = 100;
 	this->attack_damage = 30;
@@ -28,6 +29,7 @@ DiamondTrap& DiamondTrap::operator=(DiamondTrap& original) {
 DiamondTrap::DiamondTrap(std::string new_name){
 	std::cout<<"DiamondTrap Parameter constructor is called\n";
 	this->name = new_name;
+	this->ClapTrap::name = new_name + "_clap_name";
 	this->hit_points = this->FragTrap::hit_points;
 	this->energy_points = this->ScavTrap::energy_points;
 	this->attack_damage = this->FragTrap::attack_damage;
@@ -67,5 +69,5 @@ void DiamondTrap::beRepaired(unsigned int amount) {
 }
 
 void DiamondTrap::whoAmI() {
-	std::cout<< this->name << this->ClapTrap::name <<std::endl;
+	std::cout<< this->name << " " <<this->ClapTrap::name <<std::endl;
 }
