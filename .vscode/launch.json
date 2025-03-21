@@ -6,8 +6,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Users/skirakos/Desktop/cpp_modules/cpp_04/ex03",
-      "program": "/Users/skirakos/Desktop/cpp_modules/cpp_04/ex03/build/Debug/outDebug"
+      "cwd": "/Users/sedakirakosyan/Desktop/cpp_modules/cpp_05/ex00",
+      "program": "/Users/sedakirakosyan/Desktop/cpp_modules/cpp_05/ex00/build/Debug/outDebug"
     }
   ]
 }
