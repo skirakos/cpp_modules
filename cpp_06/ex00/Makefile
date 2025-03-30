@@ -1,12 +1,11 @@
-NAME = animal
+NAME = convert
 
 CPP = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = Bureaucrat.cpp \
-		main.cpp \
-		Form.cpp
+SRCS = main.cpp \
+		ScalarConverter.cpp
 		
 OBJS = $(SRCS:.cpp=.o)
 
@@ -15,7 +14,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CPP) $(CFLAGS) -o $(NAME) $(OBJS)
 
-%.o: %.cpp Makefile Bureaucrat.hpp Form.hpp
+%.o: %.cpp Makefile ScalarConverter.hpp
 	$(CPP) $(CFLAGS) -c $< -o $@
 
 clean:

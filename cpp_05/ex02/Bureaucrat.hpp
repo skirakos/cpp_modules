@@ -6,7 +6,7 @@
 #include <stdexcept>
 #include <string>
 
-class Form;
+class AForm;
 
 class Bureaucrat {
 	private:
@@ -31,7 +31,8 @@ class Bureaucrat {
 		int getGrade() const;
 		void increment();
 		void decrement();
-		void    signForm(Form& form);
+		void    signForm(AForm& form);
+		void	executeForm(AForm const & form);
 		~Bureaucrat();
 };
 

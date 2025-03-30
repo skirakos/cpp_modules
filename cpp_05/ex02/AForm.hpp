@@ -23,6 +23,10 @@ class AForm {
             public:
                 const char* what() const throw();
         };
+        class FormNotSignedException : public std::exception {
+			public:
+				const char* what() const throw();
+		};
 		AForm();
 		AForm(std::string newName, int newGradeS, int newGradeE);
 		AForm(const AForm& other);
@@ -30,11 +34,11 @@ class AForm {
 
 		const std::string getName() const;
         bool                getIsSigned() const;
-        const int           getGradeToSign() const;
-        const int           getGradeToExecute() const;
-        virtual void    beSigned(Bureaucrat& obj) = 0;
-        virtual void		executeForm(Bureaucrat const & executor) const = 0;
-		~AForm();
+        int           getGradeToSign() const;
+        int           getGradeToExecute() const;
+        virtual void    beSigned(Bureaucrat& obj);
+        virtual void		execute(Bureaucrat const & executor) const = 0;
+		virtual ~AForm();
 };
 
 std::ostream& operator<<(std::ostream& os, const AForm& obj);

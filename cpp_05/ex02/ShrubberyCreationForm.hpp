@@ -13,16 +13,18 @@ class ShrubberyCreationForm : public AForm{
 		std::string   target;
 
 	public:
-        
+		class FormNotSignedException : public std::exception {
+			public:
+				const char* what() const throw();
+		};
 		ShrubberyCreationForm();
-		ShrubberyCreationForm(std::string target);
+		ShrubberyCreationForm(const std::string& target);
 		ShrubberyCreationForm(const ShrubberyCreationForm& other);
 		ShrubberyCreationForm& operator=(const ShrubberyCreationForm& original);
 
-		void		execute(Bureaucrat const & executor);
+		void		execute(Bureaucrat const & executor) const;
 		~ShrubberyCreationForm();
 };
 
-std::ostream& operator<<(std::ostream& os, const ShrubberyCreationForm& obj);
 
 #endif
