@@ -19,7 +19,6 @@ int	check_num(std::string number)
 
 	while(number[i])
 	{
-		printf("%c", number[i]);
 		if (number[i] < '0' || number[i] > '9')
 			return (0);
 		i++;

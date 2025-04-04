@@ -1,13 +1,10 @@
-NAME = zombie
+NAME = template
 
 CPP = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = main.cpp \
-		Zombie.cpp \
-		newZombie.cpp \
-		randomChump.cpp
+SRCS = main.cpp
 		
 OBJS = $(SRCS:.cpp=.o)
 
@@ -16,7 +13,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CPP) $(CFLAGS) -o $(NAME) $(OBJS)
 
-%.o: %.cpp Makefile Zombie.hpp
+%.o: %.cpp Makefile header.hpp
 	$(CPP) $(CFLAGS) -c $< -o $@
 
 clean:

@@ -4,14 +4,14 @@
 #include "Animal.hpp"
 #include <iostream>
 
-class Cat : public Animal {
+class Cat : public Animal{
 	public:
 		Cat();
 		//Cat(std::string new_name);
 		Cat(Cat& other);
 		Cat& operator=(Cat& original);
 		void	makeSound() const;
-		virtual ~Cat();
+		~Cat();
 };
 
 #endif

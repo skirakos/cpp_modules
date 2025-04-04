@@ -11,7 +11,7 @@ Animal::Animal(Animal& other) {
 	//*this = other; this is also correct but during allocation will be incorrect
 }
 
-Animal& Animal::operator=(Animal& original) {
+Animal& Animal::operator=(const Animal& original) {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this == &original)
 		return (*this);

@@ -77,11 +77,11 @@ void ScalarConverter::convert(std::string value) {
     if (value.length() > 1 && value[value.length()  - 1] == 'f') {
         value.erase(value.length()  - 1);
         if (value == "."){
-            std::cout<<"Error1.\n";
+            std::cout<<"Error.\n";
             return ;
         }
         else if (std::isalpha(value[0])) {
-            std::cout<<"Error2.\n";
+            std::cout<<"Error.\n";
             return ;
         }
         if (value[value.length()  - 1] == '.')
@@ -93,7 +93,7 @@ void ScalarConverter::convert(std::string value) {
             }
         }
     }
-    if (value.length() == 1 && isalpha(value[0])) {
+    if (value.length() == 1 && isascii(value[0])) {
         print_char(value[0]);
         print_int(value[0]);
         print_float(value[0]);
