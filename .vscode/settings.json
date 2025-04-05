@@ -111,6 +111,10 @@
     "vector": "cpp",
     "algorithm": "cpp",
     "*.tpp": "cpp",
-    "iterator": "cpp"
+    "iterator": "cpp",
+    "map": "cpp",
+    "span": "cpp",
+    "__tree": "cpp",
+    "list": "cpp"
   }
 }
