@@ -5,7 +5,7 @@ void	exchange(std::string date, double value) {
 		std::cout << "Error: not a positive number.\n";
 		return ;
 	}
-	(void)value;
+
 	BitcoinExchange obj;
 	std::map<std::string, double> db = obj.getData();
 	std::map<std::string, double>::iterator lb = db.lower_bound(date);
@@ -14,7 +14,8 @@ void	exchange(std::string date, double value) {
 			std::cout <<date<< " => "<<value<<" = " << lb->second*value << '\n';
 		}
 		else {
-			lb--; //check
+			if ((&lb) - 1)
+				lb--; //check
 			std::cout << date << " => "<<value<<" = " << lb->second*value  << '\n';
 		}
 	} else {
@@ -71,7 +72,7 @@ void processData(std::fstream& file) {
     	if (*end != '\0') {
         	std::cout << "Error: invalid input of the value: " << end << std::endl;
 		}
-		
+
 		value = std::atof(line.substr(13, line.find('\n') - 1).c_str());
 		key = line.substr(0, 10);
 		if (!isValid(line, key, value))
