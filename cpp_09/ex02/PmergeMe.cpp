@@ -11,26 +11,6 @@ bool isNumber(const std::string& s) {
 	}
 	return !s.empty();
 }
-template <typename T>
-void insertionSort(T& container) {
-	for (typename T::iterator it = container.begin() + 1; it != container.end(); ++it) {
-		typename T::value_type key = *it;
-		typename T::iterator j = it;
-
-		while (j > container.begin() && *(j - 1) > key) {
-			*j = *(j - 1);
-			--j;
-		}
-		*j = key;
-	}
-}
-// template <typename T>
-// void insert(T& larger, const T& smaller) {
-//     for (typename T::const_iterator it = smaller.begin(); it != smaller.end(); ++it) {
-//         typename T::iterator pos = std::lower_bound(larger.begin(), larger.end(), *it);
-//         larger.insert(pos, *it);
-//     }
-// }
 
 template <typename Container>
 void	insert(Container &left, Container &right) {
@@ -43,7 +23,7 @@ void	insert(Container &left, Container &right) {
 	{
 		++power;
 
-		n = pow(2, power) - n;
+		n = std::pow(2, power) - n;
 
 		start += n;
 
