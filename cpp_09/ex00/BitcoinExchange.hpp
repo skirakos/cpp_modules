@@ -6,6 +6,8 @@
 #include <fstream>
 #include <string>
 #include <cstdlib>
+#include <utility>
+#include <cstdlib>
 
 class BitcoinExchange {
     private:
@@ -15,12 +17,9 @@ class BitcoinExchange {
         BitcoinExchange();
         BitcoinExchange(const BitcoinExchange& original);
         BitcoinExchange& operator=(const BitcoinExchange& original);
-       // ~BitcoinExchange();
+        ~BitcoinExchange();
 
         std::map<std::string, double> getData() ;
-        static std::string* split(std::string) ;
-
 };
-
 
 #endif

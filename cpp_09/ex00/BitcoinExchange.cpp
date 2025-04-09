@@ -1,6 +1,4 @@
 #include "BitcoinExchange.hpp"
-#include <utility>
-#include <cstdlib>
 
 BitcoinExchange::BitcoinExchange () {
     std::fstream file("data.csv");
@@ -19,9 +17,6 @@ BitcoinExchange::BitcoinExchange () {
         }
         while (std::getline(file, line))
         {
-            
-            // if (line == "date,exchange_rate")
-            //     continue;
             key = line.substr(0, 10);
             value = line.substr(11, line.find('\n') - 1);
             data.insert(std::make_pair(key, std::atof(value.c_str())));
@@ -29,6 +24,19 @@ BitcoinExchange::BitcoinExchange () {
     }
 }
 
+BitcoinExchange::BitcoinExchange(const BitcoinExchange& original) {
+    this->data = original.data;
+}
+
+BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& original) {
+    if (this != &original) {
+        this->data = original.data;
+    }
+    return *this;
+}
+
 std::map<std::string, double> BitcoinExchange::getData() {
     return data;
 }
+
+BitcoinExchange::~BitcoinExchange () {}
