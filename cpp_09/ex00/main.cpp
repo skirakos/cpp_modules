@@ -14,12 +14,13 @@ void	exchange(std::string date, double value) {
 			std::cout <<date<< " => "<<value<<" = " << lb->second*value << '\n';
 		}
 		else {
-			if ((&lb) - 1)
-				lb--; //check
+			if(lb != db.begin())
+				lb--;
 			std::cout << date << " => "<<value<<" = " << lb->second*value  << '\n';
 		}
 	} else {
-		std::cout << "No lower bound found\n";
+		lb--;
+		std::cout << date << " => "<<value<<" = " << lb->second*value  << '\n';
 	}
 }
 
@@ -45,7 +46,7 @@ bool isValid(std::string& line, std::string& key, double value) {
 		return (false);
 	}
 	else if (value > 1000) {
-		std::cout<<"Error: too large a number.\n"<<std::endl;
+		std::cout<<"Error: too large a number."<<std::endl;
 		return (false);
 	}
 	return (true);
@@ -62,6 +63,10 @@ void processData(std::fstream& file) {
 	}
 	while (std::getline(file, line))
 	{
+		if (line.find(" | ") == std::string::npos) {
+			std::cout << "Invalid input format" << std::endl;
+			continue ;
+		}
 		if (line.length() < 14) {
 			std::cout<<"Error: bad input => "<<line<<std::endl;
 			continue;
@@ -71,6 +76,7 @@ void processData(std::fstream& file) {
     	value = strtod(line.substr(13, line.find('\n') - 1).c_str(), &end);
     	if (*end != '\0') {
         	std::cout << "Error: invalid input of the value: " << end << std::endl;
+			continue ;
 		}
 
 		value = std::atof(line.substr(13, line.find('\n') - 1).c_str());

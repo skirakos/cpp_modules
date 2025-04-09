@@ -1,10 +1,10 @@
-NAME = rpn
+NAME = pmerge
 
 CPP = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = main.cpp RPN.cpp
+SRCS = main.cpp PmergeMe.cpp
 		
 OBJS = $(SRCS:.cpp=.o)
 
@@ -13,7 +13,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CPP) $(CFLAGS) -o $(NAME) $(OBJS)
 
-%.o: %.cpp Makefile RPN.hpp
+%.o: %.cpp Makefile PmergeMe.hpp
 	$(CPP) $(CFLAGS) -c $< -o $@
 
 clean:

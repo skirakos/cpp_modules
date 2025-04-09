@@ -1,13 +1,10 @@
 #include "RPN.hpp"
 
 int main(int argc, char **argv) {
-    if (argc == 1) {
-		std::cout<<"Error: could not open file.\n";
+    if (argc != 2) {
+		std::cout<<"Error: Invalid input format.\n";
 		return (1);
 	}
-	if (argc == 2) {
-		RPN expression(argv[1]);
-
-	}
+	RPN expression(argv[1]);
     return 0;
 }
